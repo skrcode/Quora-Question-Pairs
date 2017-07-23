@@ -12,7 +12,7 @@ def do(result,test):
 	# Write the test results
 	data=OrderedDict()
 	data["test_id"]=test["test_id"] 
-	data["is_duplicate"]=result["is_duplicate"]
+	data["is_duplicate"]=result
 	
 	output = pd.DataFrame(data=data)
 	filename = "../results/result"+str(file_count)+".csv"
