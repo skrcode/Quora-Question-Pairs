@@ -7,14 +7,15 @@ def do(X_train_features):
 	Y = X_train_features['is_duplicate']
 
 	# Fit a random forest and extract predictions 
-	forest = RandomForestClassifier(n_estimators = 700,min_samples_leaf=3,n_jobs=-1)
+	forest = RandomForestClassifier(n_estimators = 100,min_samples_leaf=3,n_jobs=-1)
 
 	# Fitting the forest may take a few minutes
 	print "Fitting a random forest to labeled training data..."
 	forest = forest.fit(X,Y)
 
-	joblib.dump(forest, '../models/RandomForests/forest') 
+	joblib.dump(forest, '../models/train/forest') 
 
+	print "Completed fitting a random forest to labeled training data..."
 	return forest
 	#result = forest.predict(test_centroids)
 	#return result
