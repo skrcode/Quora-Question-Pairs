@@ -5,22 +5,38 @@ import sys
 import glob
 import errno
 
+def clean(s):
+	s = str(s)
+	if (len(s) == 0):
+		return ""
+	s = s.replace('\n','')
+	return s
+
 def write(X_train,X_test):
-	f = open('../data/sentences/train_question1', 'w')
+	f_prefix = "../data/sentences/"
+
+	f = open(f_prefix+'train_question1', 'w')
 	for i in X_train['question1']:
-		f.write(i+"\n")
+		i = clean(i)
+		f.writelines(i+'\n')
 	f.close()
-	f = open('../data/sentences/train_question2', 'w')
+
+	f = open(f_prefix+'train_question2', 'w')
 	for i in X_train['question2']:
-		f.write(i+"\n")
+		i = clean(i)
+		f.writelines(i+'\n')
 	f.close()
-	f = open('../data/sentences/test_question1', 'w')
+
+	f = open(f_prefix+'test_question1', 'w')
 	for i in X_test['question1']:
-		f.write(str(i)+"\n")
+		i = clean(i)
+		f.writelines(i+'\n')
 	f.close()
-	f = open('../data/sentences/test_question2', 'w')
+
+	f = open(f_prefix+'test_question2', 'w')
 	for i in X_test['question2']:
-		f.write(str(i)+"\n")
+		i= clean(i)
+		f.writelines(i+'\n')
 	f.close()
 
 def do():
